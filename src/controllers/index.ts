@@ -11,6 +11,9 @@ const getNow = () => {
   return { unix, utc }
 }
 
+const getUTCFromUnix = (dateString: string) =>
+  new Date(Number(dateString)).toUTCString()
+
 const ERROR_MESSAGE = 'Invalid Date'
 
 const controller = {
@@ -24,33 +27,26 @@ const controller = {
 
   getTimes: (req: Request, res: Response) => {
     const { date_string: dateString } = req.params
-    const dateNumber = parseInt(dateString)
+
+    // dateString is a number, so the input is UNIX
+    if (!isNaN(Number(dateString))) {
+      return res.status(200).json({
+        unix: dateString,
+        utc: getUTCFromUnix(dateString),
+      })
+    }
 
     // Using parseInt on a string only returns numbers if any
-    if (dateNumber.toString().length !== dateString.length) {
+    if (new Date(dateString).toString() === ERROR_MESSAGE) {
       return res.status(400).json({
         error: ERROR_MESSAGE,
       })
     }
 
-    // const timeInput = new Date(parseInt(dateString))
-
-    // console.log('timeInput', timeInput)
-
-    // find out if unix
-
+    // ISO-8601 (e.g. "2016-11-20") or bad string
     res.json({
       message: dateString,
     })
-
-    // find out if iso utc
-
-    // // unix
-    // if (!isNaN(dateString)) {
-    //   return new Date(parseInt(dateString, 10))
-    // }
-    // // ISO-8601 (e.g. "2016-11-20") or bad string
-    // return new Date(dateString)
   },
 }
 
