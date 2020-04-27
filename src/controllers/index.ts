@@ -11,10 +11,12 @@ const getNow = () => {
   return { unix, utc }
 }
 
+const ERROR_MESSAGE = 'Invalid Date'
+
 const controller = {
   getCurrentTime: (req: Request, res: Response) => {
     const { unix, utc } = getNow()
-    return res.json({
+    return res.status(200).json({
       unix,
       utc,
     })
@@ -22,16 +24,20 @@ const controller = {
 
   getTimes: (req: Request, res: Response) => {
     const { date_string: dateString } = req.params
-    const isTime = new Date(dateString)
+    const dateNumber = parseInt(dateString)
 
-    // 'Invalid Date' is the error message produced by new Date()
-    if (isTime.toString() === 'Invalid Date') {
-      console.log('yay wrong')
+    // Using parseInt on a string only returns numbers if any
+    if (dateNumber.toString().length !== dateString.length) {
+      return res.status(400).json({
+        error: ERROR_MESSAGE,
+      })
     }
 
-    // find out if unix
+    // const timeInput = new Date(parseInt(dateString))
 
-    console.log('date string', isTime)
+    // console.log('timeInput', timeInput)
+
+    // find out if unix
 
     res.json({
       message: dateString,
