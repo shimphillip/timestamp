@@ -4,6 +4,8 @@ _A REST API for timestamps_
 
 This is the first project under APIs and Microservices Projects: Timestamp Microservice
 
+![screenshot](./docs/screenshot.png)
+
 ## Installation
 
 Clone the repo
