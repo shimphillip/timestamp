@@ -1,9 +1,9 @@
-import express from 'express'
-import controllers from '../controllers'
+import express from 'express';
+import controllers from '../controllers';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', controllers.getCurrentTime)
-router.get('/:date_string', controllers.getTimes)
+router.get('/', controllers.getCurrentTime);
+router.get('/:date_string', controllers.getTimes);
 
-export default router
+export default router;

@@ -1,20 +1,20 @@
-import express from 'express'
-import cors from 'cors'
-import morgan from 'morgan'
-import createError from 'http-errors'
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import createError from 'http-errors';
 
-import router from './routes'
+import router from './routes';
 
-const app = express()
+const app = express();
 
-app.use(cors())
+app.use(cors());
 
-app.use('/api/timestamp', router)
+app.use('/api/timestamp', router);
 
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello',
-  })
-})
+  });
+});
 
-export default app
+export default app;
