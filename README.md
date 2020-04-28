@@ -4,6 +4,20 @@ _A REST API for timestamps_
 
 This is the first project under APIs and Microservices Projects: Timestamp Microservice
 
+## Installation
+
+Clone the repo
+
+```bash
+git clone https://github.com/shimphillip/timestamp.git
+
+# Navigate
+cd timestamp
+
+# Run the server
+npm run dev or yarn dev
+```
+
 ## Table of contents:
 
 - [Get current timestamp](#get-current-timestamp)
@@ -24,7 +38,7 @@ None
 #### Request
 
 ```http
-https://timestamp-microservice-freecc.herokuapp.com/api/timestamp
+http://localhost:5000/api/timestamp
 ```
 
 #### Response
@@ -50,7 +64,7 @@ Get passed in timestamp in both unix and utc formats. It supports two parameter 
 #### Request
 
 ```http
-https://timestamp-microservice-freecc.herokuapp.com/api/timestamp/:date_string
+http://localhost:5000/api/timestamp/api/timestamp/:date_string
 ```
 
 #### Response
