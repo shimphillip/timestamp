@@ -4,6 +4,7 @@ _A REST API for timestamps_
 
 This is the first project under APIs and Microservices Projects: Timestamp Microservice
 
+This is a screenshot of Insomnia like Postman
 ![screenshot](./docs/screenshot.png)
 
 ## Installation
