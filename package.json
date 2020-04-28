@@ -9,18 +9,23 @@
     "start": "npm run build && node build/index.js",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test": "jest",
-    "test:dev": "jest --watchAll"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run prettier-format && npm run lint"
     }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "node",
+    "express",
+    "RESTful",
+    "rest-api",
+    "micro-service",
+    "timestamp"
+  ],
+  "author": "Phillip Shim",
+  "license": "MIT",
   "dependencies": {
     "@types/jest": "^25.2.1",
     "@types/supertest": "^2.0.8",
